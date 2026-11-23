@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://firenaik.github.io/BDS-Chauffage/sitemap.xml

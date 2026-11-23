@@ -3,21 +3,39 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>BDS Chauffage – Plombier chauffagiste à Nangis et Provins</title>
+    <title>Plombier chauffagiste à Nangis et Provins | BDS Chauffage</title>
     <meta
       name="description"
-      content="BDS Chauffage, votre expert en plomberie et chauffage à Nangis et Provins (77) : installation, entretien et dépannage rapide de chaudières, chauffe-eau, pompes à chaleur et sanitaires."
+      content="Plombier chauffagiste à Nangis et Provins (77) : installation, entretien et dépannage rapide de chaudières, chauffe-eau et pompes à chaleur."
     />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <!-- À COMPLÉTER : avec un nom de domaine, remplacer https://firenaik.github.io/BDS-Chauffage/
+         partout (ce fichier, sitemap.xml, robots.txt). -->
+    <link rel="canonical" href="https://firenaik.github.io/BDS-Chauffage/" />
     <meta name="theme-color" content="#070707" />
-    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon.png" />
+    <link rel="apple-touch-icon" href="images/logo-bds.png" />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_FR" />
-    <meta property="og:title" content="BDS Chauffage – Plombier chauffagiste à Nangis et Provins" />
+    <meta property="og:site_name" content="BDS Chauffage" />
+    <meta property="og:url" content="https://firenaik.github.io/BDS-Chauffage/" />
+    <meta property="og:title" content="Plombier chauffagiste à Nangis et Provins | BDS Chauffage" />
     <meta
       property="og:description"
       content="Installation, entretien et dépannage rapide en plomberie et chauffage à Nangis, Provins et leurs environs."
     />
+    <meta
+      property="og:image"
+      content="https://firenaik.github.io/BDS-Chauffage/images/hero-chaudiere.jpg"
+    />
+    <meta property="og:image:width" content="923" />
+    <meta property="og:image:height" content="552" />
+    <meta
+      property="og:image:alt"
+      content="Chaudière murale installée avec sa tuyauterie en cuivre et ses circulateurs"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,17 +54,46 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "HVACBusiness",
+        "@type": ["Plumber", "HVACBusiness"],
+        "@id": "https://firenaik.github.io/BDS-Chauffage/#entreprise",
         "name": "BDS Chauffage",
-        "description": "Plomberie et chauffage à Nangis et Provins : installation, entretien et dépannage.",
+        "description": "Plombier chauffagiste à Nangis et Provins : installation, entretien et dépannage de chaudières, chauffe-eau, pompes à chaleur et sanitaires.",
+        "url": "https://firenaik.github.io/BDS-Chauffage/",
+        "logo": "https://firenaik.github.io/BDS-Chauffage/images/logo-bds.png",
+        "image": "https://firenaik.github.io/BDS-Chauffage/images/hero-chaudiere.jpg",
         "telephone": "+33600000000",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Nangis",
           "postalCode": "77370",
+          "addressRegion": "Île-de-France",
           "addressCountry": "FR"
         },
-        "areaServed": ["Nangis", "Provins"],
+        "areaServed": [
+          { "@type": "City", "name": "Nangis" },
+          { "@type": "City", "name": "Provins" }
+        ],
+        "makesOffer": [
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Dépannage d'appareils gaz ou électriques" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Contrats d'entretien" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Travaux de plomberie" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Remplacement de chaudières, chauffe-eau et radiateurs"
+            }
+          }
+        ],
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
@@ -200,7 +247,9 @@
                   Pose et remplacement de votre appareil&nbsp;: chaudières, chauffe-eau, radiateurs,
                   afin d'optimiser votre consommation énergétique et votre confort thermique.
                 </p>
-                <a class="btn btn--primary" href="#contact">En savoir plus</a>
+                <a class="btn btn--primary" href="#contact"
+                  >En savoir plus<span class="visually-hidden"> sur les travaux de remplacement</span></a
+                >
               </div>
             </li>
 
@@ -217,7 +266,9 @@
               <div class="card__body">
                 <h3 class="card__title">Travaux de plomberie</h3>
                 <p>Fuite d'eau, remplacement de tuyauterie, pose d'équipements sanitaires.</p>
-                <a class="btn btn--primary" href="#contact">En savoir plus</a>
+                <a class="btn btn--primary" href="#contact"
+                  >En savoir plus<span class="visually-hidden"> sur les travaux de plomberie</span></a
+                >
               </div>
             </li>
 
@@ -237,7 +288,9 @@
                   Nous vous proposons nos services pour l'entretien de chaudières gaz, de ballons
                   électriques et thermodynamiques, ainsi que de pompes à chaleur.
                 </p>
-                <a class="btn btn--primary" href="#contact">En savoir plus</a>
+                <a class="btn btn--primary" href="#contact"
+                  >En savoir plus<span class="visually-hidden"> sur l'entretien et la révision</span></a
+                >
               </div>
             </li>
 
@@ -358,7 +411,7 @@
     <footer class="site-footer">
       <div class="container">
         <p>
-          © <span id="year">2026</span> BDS Chauffage · Plomberie et chauffage à Nangis, Provins et
+          © <span id="year">2026</span> BDS Chauffage · Plombier chauffagiste à Nangis, Provins et
           environs
         </p>
       </div>
