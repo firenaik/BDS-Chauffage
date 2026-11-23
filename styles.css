@@ -37,8 +37,9 @@ html {
   text-size-adjust: 100%;
 }
 
+/* With JavaScript, script.js animates anchor scrolling itself */
 @media (prefers-reduced-motion: no-preference) {
-  html {
+  html:not(.js) {
     scroll-behavior: smooth;
   }
 }
@@ -81,6 +82,11 @@ a {
 :focus-visible {
   outline: 3px solid var(--color-accent);
   outline-offset: 3px;
+}
+
+/* Sections receive focus after an anchor scroll, without an outline */
+[tabindex="-1"]:focus {
+  outline: none;
 }
 
 section[id] {
