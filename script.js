@@ -91,6 +91,15 @@ document.addEventListener("click", (event) => {
   target.focus({ preventScroll: true });
 });
 
+// Legal notice: bring the text into view when it opens, and open it for a #mentions-legales link.
+const legal = document.getElementById("mentions-legales");
+
+legal.addEventListener("toggle", () => {
+  if (legal.open) scrollToSection(legal);
+});
+
+if (location.hash === "#mentions-legales") legal.open = true;
+
 // The visitor takes over: the animation stops instead of fighting them.
 for (const type of ["wheel", "touchstart", "keydown"]) {
   window.addEventListener(type, () => scrollAnimation && stopScrollAnimation(), { passive: true });
