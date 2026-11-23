@@ -53,7 +53,8 @@ au site définitif hébergé chez OVHcloud. À cocher au fur et à mesure.
       `images/favicon.png` en 96 × 96 px à partir du nouveau logo
 - [ ] Mettre à jour la date `<lastmod>` de `sitemap.xml`
 - [ ] Ajouter un fichier `.htaccess` : HTTPS forcé, une seule adresse (avec ou sans `www`),
-      compression et cache des fichiers (à écrire une fois le domaine connu)
+      compression et cache des fichiers, à écrire une fois le domaine connu (voir
+      [l'annexe](#annexe--le-fichier-htaccess))
 - [ ] Supprimer les commentaires « À COMPLÉTER » et « À RETIRER », puis lancer cette commande depuis
       le dossier du site. Elle ne doit plus rien afficher :
 
@@ -88,3 +89,53 @@ grep -nE 'À COMPLÉTER|À RETIRER|00 00 00 00|600000000|firenaik|href="#"|\[[[:
 - [ ] Enrichir le texte : communes desservies, quelques lignes de plus par prestation
 - [ ] Demander des avis clients sur la fiche Google
 - [ ] (Facultatif) Bing Webmaster Tools, en important le site depuis Search Console
+
+## Annexe : le fichier `.htaccess`
+
+### C'est quoi
+
+Un simple fichier texte, nommé `.htaccess`, déposé avec le site dans le dossier `www/` chez OVH.
+Les hébergements web OVH tournent avec le serveur Apache : à chaque visite, il lit ce fichier et
+applique ses règles avant d'envoyer la page.
+
+GitHub Pages n'utilise pas Apache et gère le HTTPS tout seul : c'est pour ça que le fichier n'existe
+pas encore.
+
+### Pourquoi on en a besoin chez OVH
+
+**1. Les redirections : une seule adresse pour le site.** Sans réglage, la même page répond à
+quatre adresses : `http://bdschauffage.fr`, `http://www.bdschauffage.fr`,
+`https://bdschauffage.fr` et `https://www.bdschauffage.fr`. Un visiteur peut tomber sur une version
+non sécurisée, et Google voit quatre copies de la même page, ce qui disperse le référencement. Le
+`.htaccess` renvoie les trois autres vers l'adresse officielle avec une redirection « 301 »
+(déménagement définitif) : Google transfère alors tout le référencement vers la bonne adresse.
+
+Exemple, avec `https://www.bdschauffage.fr` comme adresse officielle :
+
+```apache
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80 [OR]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ https://www.bdschauffage.fr/$1 [R=301,L]
+```
+
+En clair : si la visite arrive en `http://` ou sans `www`, le serveur l'envoie vers
+`https://www.bdschauffage.fr`.
+
+**2. La compression : un site plus léger.** Le serveur compresse la page, le CSS et le JavaScript
+avant de les envoyer. Ils deviennent 3 à 4 fois plus légers, et le site s'affiche plus vite,
+surtout en 4G.
+
+**3. Le cache : un site plus rapide quand on revient.** Le serveur dit au navigateur de garder en
+mémoire les polices, les images et le CSS pendant un certain temps. À la visite suivante, presque
+rien n'est retéléchargé. PageSpeed Insights le signale si ce n'est pas fait.
+
+Sans `.htaccess`, le site fonctionnerait quand même, mais le HTTPS ne serait pas forcé, Google
+verrait des doublons, et le site serait un peu plus lent.
+
+### Deux pièges pratiques
+
+- Le point au début rend le fichier invisible sur Mac. Dans le Finder, Cmd + Maj + . affiche les
+  fichiers cachés. FileZilla le montre normalement : vérifier qu'il est bien envoyé.
+- Il ne s'écrit qu'avec le nom de domaine définitif, puisque la redirection pointe vers l'adresse
+  officielle.
